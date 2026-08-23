@@ -1,0 +1,18 @@
+.savedNews{
+    height: 294px;
+    padding: 40px 104px;
+    background-color: white;
+    padding-right: auto;
+    margin-top: 80px;
+}
+.savedNews__subtitle{
+    font-size: 18px;
+    color: #B6BCBF;
+    margin-bottom: 28px;
+}
+.savedNews__title{
+    font-size: 40px;
+    font-family: 'Roboto Slab';
+    font-weight: 400;
+    margin-bottom: 28px;
+}

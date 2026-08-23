@@ -1,0 +1,8 @@
+.results{
+    padding: 80px 104px;
+}
+.results__title{
+    font-family: 'Roboto Slab', sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+}

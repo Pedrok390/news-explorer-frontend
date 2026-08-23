@@ -1,0 +1,60 @@
+.popup{
+    background-color: rgba(0,0,0,0.5);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+.popup__container{
+    position: relative;
+    width: 430px;
+    background-color: white;
+    padding: 36px;
+    border-radius: 16px;
+}
+.popup__close{
+    position: absolute;
+    color: white;
+    top: 0;
+    right: 0;
+    transform: translate(20px, -20px);
+}
+.popup__title{
+    font-size: 24px;
+    font-weight: 900;
+    margin-bottom: 24px;
+}
+.popup__form{
+    display: flex;
+    flex-direction: column;
+}
+.popup__form-label{
+    font-size: 12px;
+    color: #2F71E5;
+    margin-bottom: 9px;
+}
+.popup__form-input{
+    margin-bottom: 31px;
+    border: 0;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+.popup__form-submit{
+    border: 0;
+    background-color: #2F71E5;
+    color: white;
+    border-radius: 100px;
+    padding: 20px 0;
+    margin-bottom: 16px;
+}
+.popup__form-subscribe{
+    display: flex;
+    justify-content: center;
+}
+.popup__form-link{
+    color: #2F71E5;
+}

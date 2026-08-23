@@ -1,0 +1,24 @@
+.about{
+    padding: 80px 104px;
+    display: flex;
+    gap: 56px;
+    background-color: #FFFFFF;
+}
+.about__image{
+    width: 38%;
+    border-radius: 50%;
+    height: fit-content;
+}
+.about__info{
+    margin-top: 51px;
+    width: 42%;
+}
+.about__title{
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 40px;
+    font-weight: 400;
+    margin-bottom: 24px;
+}
+.about__paragraph{
+    margin-bottom: 24px;
+}
