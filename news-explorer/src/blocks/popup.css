@@ -8,7 +8,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 2;
+    z-index: 4;
 }
 .popup__container{
     position: relative;
@@ -57,4 +57,17 @@
 }
 .popup__form-link{
     color: #2F71E5;
+}
+@media screen and (max-width: 480px) {
+    .popup{
+        align-items: flex-end;
+    }
+    .popup__container{
+        height: 92vh;
+        width: 100%;
+        border-radius: 16px 16px 0 0;
+    }
+    .popup__close{
+        transform: translate(-16px, -44px);
+    }
 }

@@ -11,6 +11,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [popup, setPopup] = useState(null)
   const [currentUser, setCurrentUser] = useState({})
+  const [headerBar, setHeaderBar] = useState(false)
 
   const handleOpenPopup = (popup) => {
     setPopup(popup)
@@ -21,7 +22,9 @@ function App() {
   const popupProps = {
     onOpenPopup: handleOpenPopup,
     onClosePopup: handleClosePopup,
-    popup: popup
+    popup: popup,
+    headerBar: headerBar,
+    setHeaderBar: setHeaderBar,
   }
 
   useEffect(() => {
@@ -30,6 +33,7 @@ function App() {
   const handleLogin = () => {
     setIsLoggedIn(true)
     handleClosePopup();
+    setHeaderBar(false)
   }
   const handleLogout = () => {
     console.log('aaaa')

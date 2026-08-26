@@ -5,6 +5,9 @@
     top: 0;
     border-bottom: 1px solid #C4C4C4;
 }
+.header--mobile{
+    display: none;
+}
 .header--dark{
     background-color: transparent;
     color: white;
@@ -42,6 +45,11 @@
     height: 100%;
     text-decoration: none;
 }
+.header--mobile .header__button{
+    font-weight: 100;
+    font-size: 50px;
+    padding: 0;
+}
 .header--clear .header__button--active{
     border-bottom: 2px solid black;
 }
@@ -54,7 +62,6 @@
     align-items: center;
     gap: 8px;
     border-radius: 100px;
-    height: fit-content;
     padding: 12px 45px;
     margin-left: 32px;
 }
@@ -70,7 +77,6 @@
     align-items: center;
     gap: 8px;
     border-radius: 100px;
-    height: fit-content;
     padding: 12px 19px;
     margin-left: 32px;
 }
@@ -84,9 +90,96 @@
     width: 24px;
     height: 24px;
 }
-@media screen and (min-width:768px) and (max-width: 1024px){
+@media screen and (max-width: 1024px){
     .header__container{
         height: 66px;
         padding: 0 40px;
     }
+}
+@media screen and (max-width: 768px){
+    .header__button{
+        font-size: 16px;
+    }
+}
+@media screen and (max-width: 640px){
+    .header--mobile{
+        display: block;
+    }
+    .header--desktop{
+        display: none;
+    }
+    .header__container{
+        height: 66px;
+        padding: 0 16px;
+    }
+}
+
+/* Header Bar */
+
+.headerbar__background{
+    background-color: rgba(0, 0, 0, 0.2);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 3;
+}
+.headerbar{
+    background-color: #1A1B22;
+    color: white;
+    padding-bottom: 16px;
+    border-radius: 0 0 16px 16px;
+}
+.headerbar__container{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 56px;
+    align-items: center;
+    padding: 0 16px ;
+}
+.headerbar__title{
+    font-family: 'Roboto Slab', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+}
+.headerbar__close{
+    color: inherit;
+}
+.headerbar__button{
+    color: inherit;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 0 23px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    text-decoration: none;
+    margin: 20px 0;
+}
+.headerbar__button-login{
+    color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 100px;
+    height: fit-content;
+    padding: 12px 45px;
+    border: 1px solid white;
+    margin: 25px 16px 0;
+    width: stretch;
+    justify-content: center;
+}
+.headerbar__button-logout{
+    color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 100px;
+    padding: 12px 19px;
+    border: 1px solid white;
+    margin: 25px 16px 0;
+    width: stretch;
+    justify-content: center;
 }

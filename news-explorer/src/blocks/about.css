@@ -3,6 +3,7 @@
     display: flex;
     gap: 56px;
     background-color: #FFFFFF;
+    align-items: center;
 }
 .about__image{
     width: 38%;
@@ -10,8 +11,7 @@
     height: fit-content;
 }
 .about__info{
-    margin-top: 51px;
-    width: 42%;
+    width: auto;
 }
 .about__title{
     font-family: 'Roboto Slab', sans-serif;
@@ -21,4 +21,19 @@
 }
 .about__paragraph{
     margin-bottom: 24px;
+}
+@media screen and (max-width: 768px) {
+    .about{
+        padding: 40px;
+    }
+}
+@media screen and (max-width: 425px) {
+    .about{
+        flex-direction: column;
+    }
+    .about__image{
+        width: 100%;
+        border-radius: 50%;
+        height: fit-content;
+    }
 }

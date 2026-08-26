@@ -1,14 +1,16 @@
 .newsCardList{
-    display: flex;
+    display: grid;
+    grid-template-columns: 32% 32% 32%;
     flex-wrap: wrap;
     gap: 16px;
     margin-top: 64px;
     margin-bottom: 64px;
+    justify-content: space-between;
 }
+
 
 .newsCard{
     background-color: white;
-    width: 32%;
     border-radius: 16px;
 }
 .newsCard__image-container{
@@ -23,7 +25,8 @@
 .newsCard__image{
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
+    border-radius: 16px 16px 0 0;
 }
 .newsCard__container{
     padding: 24px;
@@ -35,6 +38,7 @@
 }
 .newsCard__title{
     font-size: 26px;
+    font-weight: 400;
     margin-bottom: 10px;
     display: -webkit-box;
     -webkit-line-clamp: 2; 
@@ -56,6 +60,8 @@
     font-size: 16px;
     font-weight: 700;
     color: #B6BCBF;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 .newsCard__show{
     padding: 20px 90px;
@@ -64,15 +70,68 @@
     display: block;
     margin: auto;
 }
+.newsCard__bookmark{
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    display: flex;
+    gap: 6px;
+}
+.newsCard__bookmark-image-container{
+    background-color: white;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+.newsCard__bookmark-image:hover{
+    opacity: 0.5;
+}
 
-@media screen and (min-width: 1024px) and (max-width: 1280px){
+.newsCard__bookmark-text{
+    background-color: white;
+    height: 40px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    padding: 10px 25px;
+    font-weight: 500;
+    display: none;
+}
+.newsCard__bookmark:has(.newsCard__bookmark-image-container:hover)
+.newsCard__bookmark-text {
+    display: flex;
+}
+@media screen and (max-width: 1280px){
     .newsCardList{
         gap: 8px;
     }
     .newsCard__title{
         font-size: 22px;
     }
-    .newsCard__image{
-        height: 200px;
+}
+@media screen and (max-width: 768px){
+    .newsCard__container{
+        padding: 18px;
     }
+    .newsCard__image-container{
+        height: 150px;
+    }
+}
+@media screen and (max-width: 640px){
+    .newsCardList{
+        grid-template-columns: 45% 45%;
+    }
+}
+@media screen and (max-width: 425px){
+    .newsCardList{
+        grid-template-columns: 100%;
+    }
+    .newsCard__show{
+        padding: 16px 90px;
+}
 }

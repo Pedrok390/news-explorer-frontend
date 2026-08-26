@@ -6,3 +6,13 @@
     font-weight: 400;
     font-size: 40px;
 }
+@media screen and (max-width: 1024px){
+    .results{
+        padding: 40px 40px;
+    }
+}
+@media screen and (max-width: 425px){
+    .results{
+        padding: 16px 16px;
+    }
+}
