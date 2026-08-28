@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react'
-import Main from './Main/main.jsx'
+import { useState } from 'react'
+import Main from './Main/Main.jsx'
 import SavedNews from './SavedNews/SavedNews.jsx'
-import { BrowserRouter, Routes, Route, useNavigate, Navigate } from 'react-router-dom'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 import ProtectedRoute from './ProtectedRoute.jsx'
 import Header from './Header/Header.jsx'
 import Footer from './Footer/Footer.jsx'
@@ -10,7 +10,6 @@ function App() {
   const navigate = useNavigate()
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [popup, setPopup] = useState(null)
-  const [currentUser, setCurrentUser] = useState({})
   const [headerBar, setHeaderBar] = useState(false)
 
   const handleOpenPopup = (popup) => {
@@ -27,16 +26,12 @@ function App() {
     setHeaderBar: setHeaderBar,
   }
 
-  useEffect(() => {
-    handleClosePopup()
-  }, [])
   const handleLogin = () => {
     setIsLoggedIn(true)
     handleClosePopup();
     setHeaderBar(false)
   }
   const handleLogout = () => {
-    console.log('aaaa')
     navigate("/")
     setIsLoggedIn(false)
   }
@@ -50,7 +45,7 @@ function App() {
               } />
               <Route path="/saved-news" element={
                 <ProtectedRoute isLoggedIn={isLoggedIn}>
-                  <SavedNews isLoggedIn={isLoggedIn} />
+                  <SavedNews />
                 </ProtectedRoute>
               } />
             </Routes>

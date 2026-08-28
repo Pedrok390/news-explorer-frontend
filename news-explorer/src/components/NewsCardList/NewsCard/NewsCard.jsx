@@ -3,7 +3,6 @@ import trashCanImg from '../../../images/trashcan.png'
 export default function NewsCard(props){
 
     const {card, type, isLoggedIn} = props
-    console.log(type)
     const formattedDate = new Date(card.publishedAt).toLocaleDateString("pt-BR", {
         day: "numeric",
         month: "long",
@@ -16,7 +15,9 @@ export default function NewsCard(props){
                 <div className="newsCard__image-container">
                     <img className="newsCard__image" src={card.urlToImage} alt={card.title} />
                     <div className="newsCard__bookmark">
-                        {!isLoggedIn && <p className="newsCard__bookmark-text">{type === 'bookmark' ? 'Inscreva-se para salvar artigos' : 'Remover dos salvos'}</p>}
+                        {!isLoggedIn && 
+                            <p className="newsCard__bookmark-text">{type === 'bookmark' ? 'Inscreva-se para salvar artigos' : 'Remover dos salvos'}</p>
+                        }
                         <button className="newsCard__bookmark-image-container">
                             <img className="newsCard__bookmark-image" src={type === 'bookmark' ? bookmarkImg: trashCanImg }/>
                         </button>

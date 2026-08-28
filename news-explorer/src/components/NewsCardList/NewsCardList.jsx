@@ -1,4 +1,3 @@
-import { useState } from "react";
 import NewsCard from "./NewsCard/NewsCard";
 
 export default function NewsCardList(props){
@@ -12,7 +11,9 @@ export default function NewsCardList(props){
                     <NewsCard isLoggedIn={isLoggedIn}  type={type} key={i} card={card} />
                 ))}
             </div>
-            {visibleCards < cards.length && <button className="newsCard__show" onClick={() => setVisibleCards((prev) => prev + 6)}>Mostrar mais</button>}
+            {visibleCards < cards.length && 
+                <button className="newsCard__show" onClick={() => setVisibleCards((prev) => prev + 6)}>Mostrar mais</button>
+            }
         </>
     )
 }

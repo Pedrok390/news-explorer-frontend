@@ -9,7 +9,9 @@ export default function Footer(){
                 <div className="footer__socials">
                     <Link to='/' className='footer__social-link'>Início</Link>
                     <a className='footer__social-link' target="_blank">TripleTen</a>
-                    <a href='https://github.com/Pedrok390' className='footer__social-link' target="_blank"><img className='footer__social-icon' src={githubIcon} alt='Icone Github' /></a>
+                    <a href='https://github.com/Pedrok390' className='footer__social-link' target="_blank">
+                        <img className='footer__social-icon' src={githubIcon} alt='Icone Github' />
+                    </a>
                 </div>
             </footer>
         </>

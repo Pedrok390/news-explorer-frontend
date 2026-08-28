@@ -1,11 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 import SearchForm from '../SearchForm/SearchForm.jsx'
 import About from '../About/About.jsx';
 import NewsCardList from '../NewsCardList/NewsCardList.jsx';
 
 import { searchNews } from '../../utils/newsApi.js';
-
 
 export default function Main(props) {
     const {isLoggedIn} = props
@@ -17,7 +16,6 @@ export default function Main(props) {
             setShowResults(true)
             searchNews(search)
             .then((cards)=> {
-                console.log(cards)
                 setCards(cards)
             })
             
@@ -25,14 +23,18 @@ export default function Main(props) {
         
     }
 
-
     return(
         <>
             <SearchForm onSearch={handleSearch} />
             {showResults && 
                 <div className='results'>
                     <h2 className='results__title'>Procurar Resultados</h2>
-                    <NewsCardList cards={cards} visibleCards={visibleCards} setVisibleCards={setVisibleCards} type='bookmark' isLoggedIn={isLoggedIn} />
+                    <NewsCardList cards={cards} 
+                                visibleCards={visibleCards} 
+                                setVisibleCards={setVisibleCards} 
+                                type='bookmark' 
+                                isLoggedIn={isLoggedIn} 
+                    />
                 </div>
             }
             <About />
