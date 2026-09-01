@@ -3,7 +3,7 @@ import NewsCard from "./NewsCard/NewsCard";
 export default function NewsCardList(props){
 
     const { cards, visibleCards, setVisibleCards, type, isLoggedIn} = props
-    
+    console.log(cards)
     return(
         <>
             <div className="newsCardList">
