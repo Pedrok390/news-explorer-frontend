@@ -12,14 +12,12 @@ function App() {
   const navigate = useNavigate()
   const [currentUser, setCurrentUser] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isAuthChecking, setIsAuthChecking] = useState(true);
+  const [isAuthChecking, setIsAuthChecking] = useState(
+    Boolean(localStorage.getItem("jwt"))
+  );
   const [popup, setPopup] = useState(null)
   const [headerBar, setHeaderBar] = useState(false)
   const [usercards, setUsercards] = useState([]);
-  const [success, setSuccess] = useState(false)
-  const [token, setToken] = useState(
-    localStorage.getItem('jwt') || ''
-  );
   const handleOpenPopup = (popup) => {
     setPopup(popup)
   }
@@ -37,20 +35,16 @@ function App() {
     const jwt = localStorage.getItem("jwt");
 
     if (!jwt) {
-      setIsAuthChecking(false);
       return;
     }
 
-    api.setToken(jwt);
-
     auth.checkToken(jwt)
       .then(() => {
-        setToken(jwt);
         setIsLoggedIn(true);
+        api.setToken(jwt);
       })
       .catch(() => {
         localStorage.removeItem("jwt");
-        setToken("");
         setIsLoggedIn(false);
       })
       .finally(() => {
@@ -84,18 +78,13 @@ function App() {
   const handleRegister = (email, password, name) => {
     return auth.signup(email, password, name).then(() => {
       
-      setSuccess(true);
       setPopup(null)
     })
-    .catch((error) => {
-      setSuccess(false);
-    });
   }
   const handleLogin = (email, password) => {
     auth.signin(email, password).then((data) => {
       if (data.token) {
         localStorage.setItem("jwt", data.token);
-        setToken(data.token);
         setPopup(null)
         api.setToken(data.token);
         setIsLoggedIn(true);
@@ -106,7 +95,6 @@ function App() {
   const handleLogout = () => {
     localStorage.removeItem("jwt");
     setIsLoggedIn(false);
-    setToken("");
     navigate("/");
   }
   return (

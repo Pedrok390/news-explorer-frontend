@@ -75,7 +75,6 @@ export default function Register(props) {
 
     const isFormValid = form.email && form.password && form.name && !validateEmail(form.email) && !validatePassword(form.password) && !validateName(form.name);
 
-    const registerPopup = {title: "Inscrever-se", children: <Register onOpenPopup={onOpenPopup} onLogin={onLogin} onRegister={onRegister} />}
     const handleSubmit = (e) => {
         e.preventDefault()
 
