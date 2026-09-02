@@ -1,8 +1,13 @@
 import { Navigate } from 'react-router-dom'
 
-export default function ProtectedRoute({ isLoggedIn, children }) {
-  if (!isLoggedIn) {
-    return <Navigate to="/" replace />
+export default function ProtectedRoute({children, isLoggedIn, isAuthChecking}) {
+  if (isAuthChecking) {
+    return null;
   }
-  return children
+
+  if (!isLoggedIn) {
+    return <Navigate to="/" replace />;
+  }
+
+  return children;
 }

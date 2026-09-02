@@ -1,14 +1,31 @@
+import { useContext } from 'react';
 import bookmarkImg from '../../../images/bookmark.png'
+import bookmarkImgFull from '../../../images/bookmark-full.png'
 import trashCanImg from '../../../images/trashcan.png'
+import CurrentUserContext from '../../../contexts/CurrentUserContext';
 export default function NewsCard(props){
 
-    const {card, type, isLoggedIn} = props
+    const {card, type, onCardAdd, onCardDelete, keyword} = props
+    const {isLoggedIn, usercards} = useContext(CurrentUserContext)
     const formattedDate = new Date(card.publishedAt).toLocaleDateString("pt-BR", {
         day: "numeric",
         month: "long",
         year: "numeric"
     });
 
+    const savedCard = usercards.find((usercard) => usercard.url === card.url);
+    const isSaved = Boolean(savedCard);
+    
+    const handleSaveCard = () => {
+        onCardAdd(card, keyword)
+    }
+    const handleDeleteCard = () => {
+
+        if(isSaved){
+            console.log(savedCard._id)
+            onCardDelete(savedCard)
+        }
+    }
     return(
         <>
             <div className="newsCard">
@@ -18,9 +35,15 @@ export default function NewsCard(props){
                         {!isLoggedIn && 
                             <p className="newsCard__bookmark-text">{type === 'bookmark' ? 'Inscreva-se para salvar artigos' : 'Remover dos salvos'}</p>
                         }
-                        <button className="newsCard__bookmark-image-container">
+                        {isSaved ? 
+                        <button className="newsCard__bookmark-image-container" onClick={handleDeleteCard}>
+                            <img className="newsCard__bookmark-image" src={type === 'bookmark' ? bookmarkImgFull: trashCanImg }/>
+                        </button> 
+                        :
+                        <button className="newsCard__bookmark-image-container" onClick={handleSaveCard}>
                             <img className="newsCard__bookmark-image" src={type === 'bookmark' ? bookmarkImg: trashCanImg }/>
                         </button>
+                        }
                     </div>
                 </div>
                 <div className="newsCard__container">
