@@ -58,7 +58,7 @@ class Api{
     }
 }
 const api = new Api({
-  baseUrl: "http://api.newsdomain.crabdance.com",
+  baseUrl: "http://api.newsdomain.chickenkiller.com",
   headers: {
     "Content-Type": "application/json",
   },
