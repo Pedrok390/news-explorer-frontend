@@ -1,4 +1,4 @@
-const BASE_URL = "http://api.newsdomain.chickenkiller.com";
+const BASE_URL = "https://api.newsdomain.chickenkiller.com";
 
 export const signup = (email, password, name) => {
   return fetch(`${BASE_URL}/signup`, {

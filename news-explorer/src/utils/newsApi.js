@@ -1,5 +1,3 @@
-const apiKey = import.meta.env.VITE_NEWS_API_KEY;
-
 export function searchNews(search){
 
     const today = new Date();
@@ -11,7 +9,7 @@ export function searchNews(search){
 
 
     return fetch(
-        `https://newsapi.org/v2/everything?q=${encodeURIComponent(search)}&from=${from}&language=pt&sortBy=publishedAt&apiKey=${apiKey}`
+        `https://nomoreparties.co/news/v2/everything?q=${encodeURIComponent(search)}&from=${from}&language=pt&sortBy=publishedAt&apiKey=4eaaa6008f734ad4b2eefb5c8e88342b`
     )
     .then((res) => {
         if(!res.ok){
