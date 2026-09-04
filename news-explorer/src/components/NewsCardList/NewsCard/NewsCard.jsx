@@ -22,7 +22,6 @@ export default function NewsCard(props){
     const handleDeleteCard = () => {
 
         if(isSaved){
-            console.log(savedCard._id)
             onCardDelete(savedCard)
         }
     }

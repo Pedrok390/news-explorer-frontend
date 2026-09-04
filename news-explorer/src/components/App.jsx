@@ -73,7 +73,6 @@ function App() {
     api.addCard(data,keyword).then((newCard)  => {
       setUsercards([newCard,...usercards])
     })
-    .catch((error) => console.error(error));
   }
   const handleRegister = (email, password, name) => {
     return auth.signup(email, password, name).then(() => {
