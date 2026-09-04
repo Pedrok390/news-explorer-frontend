@@ -30,6 +30,7 @@ export default function NewsCard(props){
         <>
             <div className="newsCard">
                 <div className="newsCard__image-container">
+                    {type === 'saved' && <p className='newsCard__keyword'>{savedCard.keyword}</p>}
                     <img className="newsCard__image" src={card.urlToImage} alt={card.title} />
                     <div className="newsCard__bookmark">
                         {!isLoggedIn && 

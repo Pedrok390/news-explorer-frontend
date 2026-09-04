@@ -54,6 +54,15 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.newsCard__keyword{
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: 500;
+}
 .newsCard__source{
     text-transform: uppercase;
     font-family: 'Roboto Slab', sans-serif;

@@ -13,7 +13,7 @@ export default function SavedNews(props) {
             <div className="savedNews__container">
                 <NewsCardList 
                     cards={usercards} 
-                    type='bookmark' 
+                    type='saved' 
                     isLoggedIn={isLoggedIn}
                     onCardDelete={onCardDelete}
                 />
