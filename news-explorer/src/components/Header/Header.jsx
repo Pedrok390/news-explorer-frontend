@@ -3,8 +3,11 @@ import logoutIconWhiteImg from '../../images/logout-icon-white.svg'
 import { NavLink } from 'react-router-dom'
 import Popup from './components/Popup/Popup'
 import Login from './components/Popup/components/Login/Login'
+import { useContext } from 'react'
+import CurrentUserContext from '../../contexts/CurrentUserContext'
 export default function Header(props) {
-    const { isLoggedIn, onLogin, onLogout } = props;
+    const { onLogin, onRegister, onLogout } = props;
+    const {isLoggedIn, currentUser} = useContext(CurrentUserContext)
     const { onOpenPopup, onClosePopup, popup, headerBar, setHeaderBar } = props.popupProps;
     const logoutIcon = location.pathname === '/' ? 'dark' : 'clear'
     const onOpenHeaderBar = () => {
@@ -14,7 +17,7 @@ export default function Header(props) {
         setHeaderBar(false)
     }
 
-    const loginPopup = {title: "Entrar", children: <Login onLogin={onLogin} onOpenPopup={onOpenPopup}/>}
+    const loginPopup = {title: "Entrar", children: <Login onLogin={onLogin} onRegister={onRegister} onOpenPopup={onOpenPopup}/>}
     return(
         <>
             <header className={`header header--mobile header--${logoutIcon}`}>
@@ -37,7 +40,7 @@ export default function Header(props) {
                             <button className="header__button-login" onClick={() => onOpenPopup(loginPopup)}>Entrar</button>
                             ): (
                             <button className="header__button-logout" onClick={onLogout}>
-                                <p>Username</p>
+                                <p>{currentUser.name}</p>
                                 <img className="header__logout-icon" src={logoutIcon === 'dark' ? logoutIconWhiteImg : logoutIconImg} alt="Logout"/>
                             </button>
                         )}
@@ -59,7 +62,7 @@ export default function Header(props) {
                             <button className="headerbar__button-login" onClick={() => onOpenPopup(loginPopup)}>Entrar</button>
                         ): (
                             <button className="headerbar__button-logout" onClick={onLogout}>
-                                <p>Username</p>
+                                <p>{currentUser.name}</p>
                                 <img className="headerba__logout-icon" src={logoutIconWhiteImg} alt="Logout"/>
                             </button>
                         )}

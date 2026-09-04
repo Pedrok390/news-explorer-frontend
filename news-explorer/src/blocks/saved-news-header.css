@@ -4,6 +4,9 @@
     background-color: white;
     margin-top: 80px;
 }
+.savedNews__container{
+    padding: 0 104px;
+}
 .savedNews__subtitle{
     font-size: 18px;
     color: #B6BCBF;
